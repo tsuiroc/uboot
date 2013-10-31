@@ -95,6 +95,8 @@
 #define CONFIG_CMD_DATE
 #define CONFIG_CMD_ELF
 
+#define CONFIG_CMDLINE_EDITING
+#define CONFIG_AUTO_COMPLETE
 
 #define CONFIG_BOOTDELAY	3
 /*#define CONFIG_BOOTARGS	"root=ramfs devfs=mount console=ttySA0,9600" */
