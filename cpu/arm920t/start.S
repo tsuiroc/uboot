@@ -166,7 +166,7 @@ copyex:
 # define MPLLCON 0x4C000004 
 # define UPLLCON 0x4C000008
 
-	ldr	r1, =0x7ffff
+	ldr	r1, =0x7fff
 	ldr	r0, =INTSUBMSK
 	str	r1, [r0]
 
