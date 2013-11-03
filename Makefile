@@ -158,6 +158,7 @@ sinclude $(obj)include/autoconf.mk
 include $(obj)include/config.mk
 export	ARCH CPU BOARD VENDOR SOC
 
+CROSS_COMPILE =arm-linux-
 # set default to nothing for native builds
 ifeq ($(HOSTARCH),$(ARCH))
 CROSS_COMPILE ?=
