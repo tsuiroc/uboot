@@ -40,6 +40,15 @@
 #define CONFIG_SMDK2440		1	/* on a SAMSUNG SMDK2410 Board  */
 #define CONFIG_SKIP_LOWLEVEL_INIT
 
+//nand flash
+#define CONFIG_NAND_S3C2440 1
+#define CONFIG_S3C2440_NAND_BOOT
+#define CONFIG_SYS_MAX_NAND_DEVICE 1
+#define CONFIG_ENV_OFFSET 0x60000
+#define CONFIG_SYS_NAND_BASE 0x4E000000
+#define CONFIG_ENV_SIZE 0x20000
+#define NAND_CTL_BASE  0x4E000000
+
 /* input clock of PLL */
 #define CONFIG_SYS_CLK_FREQ	12000000/* the SMDK2410 has 12MHz input clock */
 
@@ -94,6 +103,8 @@
 #define CONFIG_CMD_CACHE
 #define CONFIG_CMD_DATE
 #define CONFIG_CMD_ELF
+#define CONFIG_CMD_NAND 1
+#define CONFIG_ENV_IS_IN_NAND 1
 #define CONFIG_CMD_LED
 
 #define CONFIG_CMDLINE_EDITING
@@ -183,7 +194,7 @@
 #define CONFIG_SYS_FLASH_ERASE_TOUT	(5*CONFIG_SYS_HZ) /* Timeout for Flash Erase */
 #define CONFIG_SYS_FLASH_WRITE_TOUT	(5*CONFIG_SYS_HZ) /* Timeout for Flash Write */
 
-#define	CONFIG_ENV_IS_IN_FLASH	1
-#define CONFIG_ENV_SIZE		0x10000	/* Total Size of Environment Sector */
+//#define	CONFIG_ENV_IS_IN_FLASH	1
+//#define CONFIG_ENV_SIZE		0x10000	/* Total Size of Environment Sector */
 
 #endif	/* __CONFIG_H */
