@@ -114,8 +114,8 @@ start_code:
 	orr	r0,r0,#0xd3
 	msr	cpsr,r0
 
-	bl coloured_LED_init
-	bl red_LED_on
+	@bl coloured_LED_init
+	@bl red_LED_on
 
 #if	defined(CONFIG_AT91RM9200DK) || defined(CONFIG_AT91RM9200EK)
 	/*
@@ -165,10 +165,25 @@ copyex:
 # if defined(CONFIG_S3C2440)
 # define MPLLCON 0x4C000004 
 # define UPLLCON 0x4C000008
+# define GPFCON  0x56000050
+# define GPFDAT  0x56000054
+# define GPFUP   0x56000058
 
 	ldr	r1, =0x7fff
 	ldr	r0, =INTSUBMSK
 	str	r1, [r0]
+
+	ldr	r0, =GPFUP //设置上拉
+    ldr  r1, =0xff
+    str  r1, [r0]
+
+	ldr	r0, =GPFCON //设置输出
+    ldr  r1, =0x5500
+    str  r1, [r0]
+
+	ldr	r0, =GPFDAT //点DL1,DL3
+    ldr  r1, =0xa0
+    str  r1, [r0]
 
 	/* FCLK:HCLK:PCLK = 1:4:8 */
 	ldr	r0, =CLKDIVN
